@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+   xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+   <head>
+      <meta charset="ISO-8859-1">
+      <title>MIS LOGIN PAGE</title>
+   </head>
+   <body>
+      <table>
+         <tbody>
+            <tr>
+               <td align="center" valign="top" style="width: 650px; height: 745px;">
+                  <img src="https://mis.myvaluefirst.com/vmpreport/image/mis_logo.jpg" align="center" style="width: 50%;">
+               </td>
+               <td style="width: 300px; height: 745px; font-size: 12px; padding: 20px; border-left: solid; border-left-color: gray;" 
+               		align="center" valign="middle">
+                  <div id="container_demo">
+                     <!-- dark anchor to stop burst http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  -->
+                     <a class="hiddenanchor" id="tologin"></a>
+                     <div id="wrapper">
+                        <div id="login" class="animate form">
+                           <form th:action="@{/login}" method="post">
+                              <!-- error message -->
+                              <div th:if="${param.error}">
+                                 <div class="alert alert-danger">Invalid username or
+                                    password.
+                                 </div>
+                              </div>
+                              <!-- logout message -->
+                              <div th:if="${param.logout}">
+                                 <div class="alert alert-info">You have been logged out.</div>
+                              </div>
+                              <div class="form-group">
+                                 <label for = "username"> Username </label> :
+                                 <input type="text" class = "form-control" id ="username" name = "username"
+                                    placeholder="Enter Username" autofocus="autofocus">
+                              </div>
+                              <div class="form-group">
+                                 <label for="password">Password</label>: <input type="password"
+                                    id="password" name="password" class="form-control"
+                                    placeholder="Enter Password" />
+                              </div>
+                              <div class="form-group">
+                                 <div class="row">
+                                    <div class="col-sm-6 col-sm-offset-3">
+                                       <input type="submit" name="login-submit" id="login-submit"
+                                          class="form-control btn btn-primary" value="Log In" />
+                                    </div>
+                                 </div>
+                              </div>
+                           </form>
+                           <div class="form-group">
+                              <span>New user? <a href="/" th:href="@{/registration}">Register
+                              here</a></span>
+                           </div>
+                           <p>Can't access my account. <a href="/" th:href="@{/forgot-password}">Forget Password</a></p>
+                        </div>
+                     </div>
+                  </div>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+   </body>
+</html>

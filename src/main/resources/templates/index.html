@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta charset="ISO-8859-1">
+<title>Registration and Login App</title>
+
+</head>
+<body>
+	<!-- create navigation bar ( header) -->
+		<div class="container">
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
+				</ul>
+			</div>
+		</div>
+
+	<br>
+	<br>
+
+	<div class="container">
+		
+		Welcome <span sec:authentication="principal.username" th:text="principal.username"> </span>
+	</div>
+</body>
+</html>
